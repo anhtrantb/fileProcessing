@@ -74,11 +74,11 @@ public class FileProcessing {
         for (i=0;i< arr.size();i++) {
             word = arr.get(i);
             if (map.containsKey(word)){
-            int count = map.get(word);//lấy số lần lặp 
-            map.put(word, count + 1);// ghi biến đếm 
+                int count = map.get(word);//lấy số lần lặp 
+                map.put(word, count + 1);// ghi biến đếm 
             } else {
-            //nếu không trùng thì đếm bằng 1 
-            map.put(word, 1); 
+                //nếu không trùng thì đếm bằng 1 
+                map.put(word, 1); 
             }
         }
         return map;
