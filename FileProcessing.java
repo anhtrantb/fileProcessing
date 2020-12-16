@@ -22,7 +22,7 @@ public class FileProcessing {
     // Tìm kiếm các từ với chữ cái đầu tiên dựa vào xuất hiện của các từ
     // Viết kết quả ra file mới
    
-    public static String readFile(String filename) {
+    public  String readFile(String filename) {
         //khởi tạo 
         BufferedReader buffer = null;
         StringBuilder result = new StringBuilder();
@@ -44,7 +44,7 @@ public class FileProcessing {
             return e.toString();
         } 
     }
-    public static ArrayList<String> getWordFromString(String content, String regex){
+    public  ArrayList<String> getWordFromString(String content, String regex){
         //tạo mảng chứa dữ liệu tách được 
         ArrayList<String> allMatches = new ArrayList<String>();
         //tạo pattern 
@@ -56,16 +56,16 @@ public class FileProcessing {
         }
         return allMatches;
     }
-    public static int countWord (String s, String regex){
+    public  int countWord (String s, String regex){
         //trả về số lượng của mảng 
         return getWordFromString(s,regex).size();
     }
-    public static String regexOfWord(){
+    public  String regexOfWord(){
         return "([a-zA-Z]+([-']?[a-zA-Z]+)?)|(-?\\d+([.,]\\d+)?%?)";
         // có thể khớp với các từ 
         // hello team-building i'm 1.2 -1,2 -1.4 3%  
     }
-    public static HashMap<String,Integer> createMap(ArrayList<String> arr){
+    public  HashMap<String,Integer> createMap(ArrayList<String> arr){
         //khai báo hash map 
         HashMap < String, Integer > map = new HashMap < > ();
         int i;
@@ -83,10 +83,10 @@ public class FileProcessing {
         }
         return map;
     }
-    public static void countDuplicate(ArrayList<String> arr,String filename){
+    public  void countDuplicate(ArrayList<String> arr,String filename){
         writeHashMapToFile(createMap(arr), filename);
     }
-    public static void writeHashMapToFile(HashMap<String,Integer> listCount, String filename){
+    public  void writeHashMapToFile(HashMap<String,Integer> listCount, String filename){
         //khởi tạo với buffer 
         File file = new File(filename);
         BufferedWriter buffWrite = null;;
@@ -108,7 +108,7 @@ public class FileProcessing {
         }
     }
     
-    public static void writeArrayListToFile(ArrayList<Element >element, String filename){
+    public  void writeArrayListToFile(ArrayList<Element >element, String filename){
         //khởi tạo với buffer 
         File file = new File(filename);
         BufferedWriter buffWrite = null;
@@ -132,7 +132,7 @@ public class FileProcessing {
         }
     }
    
-    public static ArrayList<Element> sortByCount(ArrayList<String> arr,String filename){
+    public  ArrayList<Element> sortByCount(ArrayList<String> arr,String filename){
         //khởi tạo 1 list 
         ArrayList<Element> listItem = convertHashmapToArrayList(createMap(arr));
         //tạo cách so sánh 
@@ -148,7 +148,7 @@ public class FileProcessing {
         writeArrayListToFile(listItem, filename);  
         return listItem;
     }
-    public static ArrayList<Element> convertHashmapToArrayList(HashMap<String,Integer> listCount){
+    public  ArrayList<Element> convertHashmapToArrayList(HashMap<String,Integer> listCount){
         Set<String> keySet = listCount.keySet();
         ArrayList<Element> arrItem = new ArrayList<>();
         //duyệt mảng 
@@ -160,7 +160,7 @@ public class FileProcessing {
             } 
         return arrItem;
     }
-    public static void searchWord(String word,ArrayList<Element> listSorted, int number){
+    public  void searchWord(String word,ArrayList<Element> listSorted, int number){
         int i;
         int count = 0;
         String w;
